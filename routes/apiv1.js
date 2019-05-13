@@ -28,7 +28,7 @@ exports.getWeather = function(req, res) {
     	} else {
     		if(body.cod === 200) {
     			var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' F';
-    			var response = {weather: weath};
+    			var response = {city: body.name, weather: weath};
     			return res.status(200).send(response);
     		} else {
                 return res.status(400).send({msg:'Failed'});
@@ -39,7 +39,7 @@ exports.getWeather = function(req, res) {
 };
 router.get('/getWeather', exports.getWeather);
 
-
+/*
 exports.getWeather2 = function(req, res) {
 	var zip = req.query.zip;
 	if( (zip === null) || (typeof(zip) === 'undefined') ) {
@@ -69,6 +69,6 @@ exports.getWeather2 = function(req, res) {
 
 };
 router.get('/getWeather2', exports.getWeather2);
-
+*/
 
 exports.router = router;
