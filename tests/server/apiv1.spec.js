@@ -4,7 +4,7 @@
   'use strict';
 
 	var requireHelper = require('./requireHelper');
-  var apiv1 = requireHelper.require('/routes/apiv1');
+  var apiv1 = requireHelper.require('tests/coverage/instrumented/routes/apiv1');
   var assert = require('chai').assert;
   var sinon = require('sinon');
 
@@ -44,7 +44,7 @@
     it('with valid zip code and error from request call', function() {
       reqMock = {
         query: {
-          zip: 'Wellington'
+          zip: 'Wellington,nz'
         }
       };
 
@@ -63,7 +63,7 @@
     it('with incomplete zip code', function() {
       reqMock = {
         query: {
-          zip: 'Well'
+          zip: 'Well,nz'
         }
       };
 
@@ -82,7 +82,7 @@
     it('with valid zip code', function() {
       reqMock = {
         query: {
-          zip: 'Wellington'
+          zip: 'Wellington,nz'
         }
       };
 
